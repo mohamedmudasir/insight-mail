@@ -3,19 +3,19 @@ import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 
-
-const appRoutes: Routes = [
-  {
-    path: "",
-    component: LoginComponent
-  },
+const loginRoutes: Routes = [
   {
     path: "signup",
     component: SignupComponent
   },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  { path: "", redirectTo: "login", pathMatch: "full" }
 ];
 @NgModule({
-  imports: [RouterModule.forChild(appRoutes)],
+  imports: [RouterModule.forChild(loginRoutes)],
   exports: [RouterModule]
 })
 export class PreLoginRoutingModule {}

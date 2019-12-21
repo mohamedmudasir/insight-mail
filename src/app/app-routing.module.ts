@@ -5,7 +5,7 @@ import { CoreModule } from "src/core-modules/core.module";
 
 const appRoutes: Routes = [
   {
-    path: "login",
+    path: "u",
     loadChildren: () =>
       import("../pre-login/pre-login.module").then(m => PreLoginModule)
   },

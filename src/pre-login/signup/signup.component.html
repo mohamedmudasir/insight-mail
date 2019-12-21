@@ -1,1 +1,21 @@
-<p>signup works!</p>
+<div class="signup-container">
+	<form [formGroup]="signupForm">
+		<h1>Register</h1>
+		<div class="email-input">
+			<input type="text" placeholder="Email Address" formControlName="email">
+    </div><br>
+    <div class="pwd-input">
+      <input type="password" placeholder="Password" formControlName="password">
+    </div><br>
+    <div class="pwd-input">
+      <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+    </div>
+  </form><br>
+  <div class="submit">
+    <button (click)="onRegister()">Register</button>
+  </div><br>
+  <div class="error-msg">{{errorMessage}}</div><br>
+  <div class="login-cont">
+    <div class="login">Already have an account ? <span class= "back-link" routerLink="/u/login">Login</span></div>
+  </div>
+</div>

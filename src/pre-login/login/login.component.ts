@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup,FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { LoginService } from "../login.service";
 
 @Component({
   selector: "app-login",
@@ -18,31 +20,29 @@ export class LoginComponent implements OnInit {
   message: string;
   data: Object;
   tokenId: Object;
-  constructor() {}
+  constructor(private route: Router, private loginService: LoginService) {}
 
   ngOnInit() {}
 
   get ControlValue() {
     return this.loginForm.controls;
   }
+
   onLogin() {
-    console.log('clicked')
+    if (this.loginForm.valid) {
+      const payload = {
+        email: this.ControlValue.userName.value.toLowerCase(),
+        pwd: this.ControlValue.password.value
+      };
+      return this.loginService.authoriseLogin(payload).subscribe(
+        data => {
+          localStorage.setItem("currentUser", JSON.stringify(data));
+          this.route.navigate(["/"]);
+        },
+        err => {
+          this.errorMessage = err.error.message;
+        }
+      );
+    }
   }
-
-  // onLogin() {
-  //  if(this.loginForm.valid) {
-  //    const payload = {
-  //      email : this.ControlValue.userName.value.toLowerCase(),
-  //      pwd: this.ControlValue.password.value
-  //    }
-  //    return this.loginService.authoriseLogin(payload).subscribe((data) => {
-  //      localStorage.setItem('currentUser', JSON.stringify(data));
-  //      this.route.navigate(['/']);
-
-  //    },
-  //    (err) => {
-  //      this.errorMessage = err;
-  //     })
-  //  }
-  // }
 }

@@ -1,0 +1,40 @@
+.login-container {
+  text-align: center;
+  width: 60%;
+  margin: 10% auto;
+
+  input {
+    padding: 12px;
+    border: .5px solid #00000059;
+    margin: 0 auto;
+    width: 35%;
+    outline-color: #00800057 !important;
+  }
+
+  .submit {
+    width: 35%;
+    margin: 0 auto;
+
+    button {
+      border-radius: 3px;
+      background: #00A89D;
+      border: none;
+      padding: 5px 10px;
+      color: #FCFCFC;
+      cursor: pointer;
+    }
+  }
+
+  .error-msg {
+    color: red;
+    font-size: 15px;
+    line-height: .5px;
+    width: auto;
+  }
+
+  .back-link {
+    text-decoration: none;
+    color: #6C7757;
+    cursor: pointer;
+  }
+}
