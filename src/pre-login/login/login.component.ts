@@ -22,7 +22,11 @@ export class LoginComponent implements OnInit {
   tokenId: Object;
   constructor(private route: Router, private loginService: LoginService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (localStorage.getItem("currentUser")) {
+      this.route.navigate(["/"]);
+    }
+  }
 
   get ControlValue() {
     return this.loginForm.controls;
