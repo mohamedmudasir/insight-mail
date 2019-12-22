@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {faTimes, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {DashboardService} from '../dashboard.service';
 
 @Component({
   selector: 'app-mail-compose',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mail-compose.component.scss']
 })
 export class MailComposeComponent implements OnInit {
-
-  constructor() { }
+faIcons = {
+  faTimes,
+  faTrash
+}
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
+  }
+  closeModal() {
+    this.dashboardService.composeMail.next(false);
   }
 
 }

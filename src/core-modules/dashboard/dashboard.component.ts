@@ -1,23 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import {faEnvelope, faInbox, faStar, faFileSignature, faTrash, faCircle} from '@fortawesome/free-solid-svg-icons';
-
-@Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
-})
-export class DashboardComponent implements OnInit {
-faIcons = {
+import { Component, OnInit } from "@angular/core";
+import {
   faEnvelope,
   faInbox,
   faStar,
   faFileSignature,
   faTrash,
-  faCircle
-}
-  constructor() { }
+  faCircle,
+  faTag
+} from "@fortawesome/free-solid-svg-icons";
+import { DashboardService } from "./dashboard.service";
+@Component({
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"]
+})
+export class DashboardComponent implements OnInit {
+  faIcons = {
+    faEnvelope,
+    faInbox,
+    faStar,
+    faFileSignature,
+    faTrash,
+    faCircle,
+    faTag
+  };
+  public composeMail;
+  constructor(private dashboardService: DashboardService) {}
 
   ngOnInit() {
+    this.dashboardService.composeMail.subscribe(data => this.composeMail = data);
   }
-
 }

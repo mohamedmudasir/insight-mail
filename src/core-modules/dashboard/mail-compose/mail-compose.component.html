@@ -1,1 +1,27 @@
-<p>mail-compose works!</p>
+<div class="container">
+  <div class="title-card">
+    <div class="title">New Message</div>
+    <div class="close">
+      <fa-icon [icon]="faIcons.faTimes" (click)="closeModal()"></fa-icon>
+    </div>
+  </div>
+  <div class="recepient">
+    <input type="text" placeholder="To">
+    <input type="text" placeholder="Cc">
+    <input type="text" placeholder="Bcc">
+  </div>
+  <div class="recepient">
+    <input type="text" placeholder="Subject">
+  </div>
+  <div class="mail-body">
+    <input type="text">
+  </div>
+  <div class="mail-footer">
+    <div class="send">
+      <button>Send</button>
+    </div>
+    <div class="delete">
+      <fa-icon [icon]="faIcons.faTrash"></fa-icon>
+    </div>
+  </div>
+</div>

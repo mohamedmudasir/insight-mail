@@ -1,1 +1,47 @@
-<p>mail-list works!</p>
+<div class="mail-list-container">
+  <div class="list-header">
+    <div class="list-title">Inbox (16)</div>
+    <div class="list-icon">
+      <div class="icons">
+        <input type="text" placeholder="Search Email">
+      </div>
+      <div class="search">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="list-menu">
+    <div class="left-menu">
+      <div class="icon">
+        <fa-icon [icon]="faIcons.faSync"></fa-icon><span>Refresh</span>
+      </div>
+      <div class="icon">
+        <fa-icon [icon]="faIcons.faEye"></fa-icon>
+      </div>
+      <div class="icon">
+        <fa-icon [icon]="faIcons.faExclamation"></fa-icon>
+      </div>
+      <div class="icon">
+        <fa-icon [icon]="faIcons.faTrash"></fa-icon>
+      </div>
+    </div>
+    <div class="right-menu">
+      <div class="icon">
+        <fa-icon [icon]="faIcons.faArrowLeft"></fa-icon>
+      </div>
+      <div class="icon">
+        <fa-icon [icon]="faIcons.faArrowRight"></fa-icon>
+      </div>
+    </div>
+  </div>
+  <div class="list-container">
+    <div class="list-item"  ngClass= "{unread: mail.read == false }" *ngFor="let mail of mockData">
+      <div class="list-check">
+        <input type="checkbox">
+      </div>
+      <div class="list-name">{{mail.sender_name}}</div>
+      <div class="list-subject">{{mail.subject}}</div>
+      <div class="list-time">{{mail.sent_at}}</div>
+    </div>
+  </div>
+</div>

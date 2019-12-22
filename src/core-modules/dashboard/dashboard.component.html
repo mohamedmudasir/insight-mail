@@ -8,7 +8,7 @@
       <div class="left-content">
         <div class="container">
           <div class="mail-compose">
-            <button>Compose mail</button>
+            <button (click)= "composeMail = true">Compose mail</button>
           </div>
           <div class="dashboard-nav">
             <div class="group">
@@ -18,7 +18,7 @@
                   <fa-icon [icon]="faIcons.faInbox"></fa-icon>
                 </div>
                 <div class="group-nav-name">Inbox</div>
-                <div class="group-nav-label">16</div>
+                <div class="group-nav-label inbox">16</div>
               </div>
               <div class="group-list">
                 <div class="group-icon">
@@ -37,7 +37,7 @@
                   <fa-icon [icon]="faIcons.faFileSignature"></fa-icon>
                 </div>
                 <div class="group-nav-name">Drafts</div>
-                <div class="group-nav-label">2</div>
+                <div class="group-nav-label drafts">2</div>
               </div>
               <div class="group-list">
                 <div class="group-icon">
@@ -71,10 +71,33 @@
             </div>
             <div class="group">
               <div class="group-title">LABELS</div>
-              <div class="group-list">
-                <div class="group-icon"></div>
-                <div class="group-nav-name">Inbox</div>
-                <div class="group-nav-label"></div>
+              <div class="label-list">
+                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-name">Family</div>
+              </div>
+              <div class="label-list">
+                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-name">Work</div>
+              </div>
+              <div class="label-list">
+                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-name">Holidays</div>
+              </div>
+              <div class="label-list">
+                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-name">Music</div>
+              </div>
+              <div class="label-list">
+                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-name">Photography</div>
+              </div>
+              <div class="label-list">
+                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-name">Film</div>
+              </div>
+              <div class="label-list">
+                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-name">Home</div>
               </div>
             </div>
           </div>
@@ -85,4 +108,5 @@
       </div>
     </div>
   </div>
+  <app-mail-compose *ngIf="composeMail"></app-mail-compose>
 </div>
