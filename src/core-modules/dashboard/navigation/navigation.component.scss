@@ -1,6 +1,44 @@
-.nav-icons {
-  fa-icon {
-      fill: red  !important;
-      color: red !important;
+.nav-container {
+  //   width: 80px;
+  width: 90px;
+  height: 100vh;
+  background-color: #11211f;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    width: 280px;
+
+    .nav-text {
+      width: 220px;
+    }
+  }
+
+  .nav-icons {
+    padding: 20px 0;
+    box-sizing: border-box;
+    width: 280px;
+
+    &:hover {
+        background-color:#1c1a1adb;
+    }
+
+    .nav-logo {
+      font-size: 30px;
+      font-weight: bold;
+      padding: 20px;
+    }
+
+    fa-icon {
+      font-size: 20px;
+      padding: 30px;
+      width: 100px;
+      box-sizing: border-box;
+    }
+
+    .nav-text {
+      padding: 0 10px;
+      width: 0px;
+    }
   }
 }

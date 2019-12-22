@@ -1,22 +1,23 @@
-<header>
+<div class="header">
   <div class="wrapper">
     <div class="logo">
       <a>Insight</a>
     </div>
     <nav>
-      <div>
-        <fa-icon [icon]="faEnvelope"> </fa-icon>
+      <div class="nav-icon">
+        <fa-icon [icon]="faIcons.faEnvelope"> </fa-icon>
+        <div class="nav-label">10</div>
       </div>
-
-      <div>
-        <a routerLink='login'>Login</a>
+      <div class="nav-icon">
+        <fa-icon [icon]="faIcons.faBell"> </fa-icon>
+        <div class="nav-label">10</div>
       </div>
-      <div>
-        <a routerLink='/profile'>Profile</a>
-      </div>
-      <div>
+      <div class="nav-icon">
+        <span>
+          <fa-icon [icon]="faIcons.faShareSquare"></fa-icon>
+        </span>
         <a>Log Out</a>
       </div>
     </nav>
   </div>
-</header>
+</div>

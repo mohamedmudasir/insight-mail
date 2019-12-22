@@ -1,3 +1,88 @@
-<!-- <app-header></app-header> -->
-<app-navigation></app-navigation>
-<router-outlet></router-outlet>
+<div class="main-layout">
+  <div class="left-layout">
+    <app-navigation></app-navigation>
+  </div>
+  <div class="right-layout">
+    <app-header></app-header>
+    <div class="main-content">
+      <div class="left-content">
+        <div class="container">
+          <div class="mail-compose">
+            <button>Compose mail</button>
+          </div>
+          <div class="dashboard-nav">
+            <div class="group">
+              <div class="group-title">FOLDERS</div>
+              <div class="group-list">
+                <div class="group-icon">
+                  <fa-icon [icon]="faIcons.faInbox"></fa-icon>
+                </div>
+                <div class="group-nav-name">Inbox</div>
+                <div class="group-nav-label">16</div>
+              </div>
+              <div class="group-list">
+                <div class="group-icon">
+                  <fa-icon [icon]="faIcons.faEnvelope"></fa-icon>
+                </div>
+                <div class="group-nav-name">Sent Mail</div>
+              </div>
+              <div class="group-list">
+                <div class="group-icon">
+                  <fa-icon [icon]="faIcons.faStar"></fa-icon>
+                </div>
+                <div class="group-nav-name">Important</div>
+              </div>
+              <div class="group-list">
+                <div class="group-icon">
+                  <fa-icon [icon]="faIcons.faFileSignature"></fa-icon>
+                </div>
+                <div class="group-nav-name">Drafts</div>
+                <div class="group-nav-label">2</div>
+              </div>
+              <div class="group-list">
+                <div class="group-icon">
+                  <fa-icon [icon]="faIcons.faTrash"></fa-icon>
+                </div>
+                <div class="group-nav-name">Trash</div>
+              </div>
+            </div>
+            <div class="group">
+              <div class="group-title">CATEGORIES</div>
+              <div class="category-list">
+                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: red;"></fa-icon></div>
+                <div class="category-name">Work</div>
+              </div>
+              <div class="category-list">
+                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: purple;"></fa-icon></div>
+                <div class="category-name">Documents</div>
+              </div>
+              <div class="category-list">
+                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: green;"></fa-icon></div>
+                <div class="category-name">Social</div>
+              </div>
+              <div class="category-list">
+                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: blue;"></fa-icon></div>
+                <div class="category-name">Advertising</div>
+              </div>
+              <div class="category-list">
+                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: orange;"></fa-icon></div>
+                <div class="category-name">Clients</div>
+              </div>
+            </div>
+            <div class="group">
+              <div class="group-title">LABELS</div>
+              <div class="group-list">
+                <div class="group-icon"></div>
+                <div class="group-nav-name">Inbox</div>
+                <div class="group-nav-label"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

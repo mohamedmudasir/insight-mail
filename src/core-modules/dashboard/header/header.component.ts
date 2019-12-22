@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {faEnvelope, faShareSquare, faBell} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: "app-header",
@@ -8,7 +8,7 @@ import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
-  faEnvelope = faEnvelope;
+  faIcons = {faEnvelope, faShareSquare, faBell};
   constructor(private route: Router) {}
 
   ngOnInit() {}

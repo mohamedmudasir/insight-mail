@@ -1,53 +1,77 @@
-header{
-    background: #00A89D;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1% ;
+.header {
+  box-sizing: border-box;
+  background: #00A89D;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1%;
+  color:white;
+
+  .wrapper {
+
+    .logo {
+      float: left;
+      padding: 0 1%;
+      width: 5%;
+      ;
+      text-align: center;
+      font-weight: bolder;
+      font-size: 25px;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    nav {
+      float: right;
+      width: 30%;
+      text-align: right;
+
+      .nav-icon {
+        fa-icon {
+          position: relative;
+        }
+
+        .nav-label {
+          position: absolute;
+          border: 1px solid yellow;
+          border-radius: 50%;
+          margin: 0;
+          top: 13px;
+          width: 15px;
+          height: 15px;
+          font-size: 10px;
+          text-align: center;
+          background: yellow;
+          font-weight: bold;
+          ;
+        }
+      }
+
+      fa-icon {
+        font-size: 20px;
+      }
+
+      div {
+        display: inline-block;
+        margin: 0 30px;
+        cursor: pointer;
+
+        a {
+          padding: 0 5px;
+          text-decoration: none;
+          margin: 0 5px;
+          border-radius: 5px;
+          font-size: 15px;
+        }
+      }
+    }
+
   }
-  .wrapper{
-    width: 90%;
-    margin: 0 auto;
-    padding: 0 5%;
-  }
-  .logo{
-    float: left;
-    padding: 0 1%;
-    width: 5%;;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 25px;
-  }
-  .logo a{
-    text-decoration: none;
-    color: white;
-  }
-  nav {
-    float: right;
-    width: 30%;
-    text-align: center;
-    margin: 2px auto;
-  }
-  nav div{
-    display: inline-block;
-    padding: 0 2%;
-  }
-  nav a {
-    padding: 11px 10px;
-    text-decoration: none;
-    color: white;
-    margin: 0 5px;
-    border-radius: 5px;
-    font-size: 15px;
-    cursor: pointer;
-  }
-  nav a:hover {
-    opacity: .8;
-  }
-  header::after{
-    clear: both;
-    content: '';
-    display: block;
-  }
-  .loading{
-    text-align: center;
-  }
+}
+
+.header::after {
+  clear: both;
+  content: '';
+  display: block;
+}
