@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   onLogin() {
     if (this.loginForm.valid) {
       const payload = {
-        email: this.ControlValue.userName.value.toLowerCase(),
+        email: this.ControlValue.userName.value.toLowerCase().trim(),
         pwd: this.ControlValue.password.value
       };
       return this.loginService.authoriseLogin(payload).subscribe(

@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
   onRegister() {
     if (this.signupForm && this.pwdMatch()) {
       const payload = {
-        email: this.ControlInputValue.email.value.toLowerCase(),
+        email: this.ControlInputValue.email.value.toLowerCase().trim(),
         pwd: this.ControlInputValue.password.value
       };
       return this.loginService.registerUser(payload).subscribe(

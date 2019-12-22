@@ -90,9 +90,12 @@
       &:hover {
         background: #0000001f;
       }
-      .unread {
-          font-weight: bold;
+
+      &.unread {
+        font-weight: bold;
+        background: #a098980a;
       }
+
       .list-check {
         width: 5%;
       }

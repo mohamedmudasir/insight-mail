@@ -35,13 +35,15 @@
     </div>
   </div>
   <div class="list-container">
-    <div class="list-item"  ngClass= "{unread: mail.read == false }" *ngFor="let mail of mockData">
-      <div class="list-check">
-        <input type="checkbox">
+    <div *ngFor="let mail of mockData">
+      <div class="list-item" [ngClass]="{'unread': mail.read === false }">
+        <div class="list-check">
+          <input type="checkbox">
+        </div>
+        <div class="list-name">{{mail.sender_name}}</div>
+        <div class="list-subject">{{mail.subject}}</div>
+        <div class="list-time">{{mail.sent_at}}</div>
       </div>
-      <div class="list-name">{{mail.sender_name}}</div>
-      <div class="list-subject">{{mail.subject}}</div>
-      <div class="list-time">{{mail.sent_at}}</div>
     </div>
   </div>
 </div>
