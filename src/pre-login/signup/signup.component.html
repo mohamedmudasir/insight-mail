@@ -2,7 +2,10 @@
 	<form [formGroup]="signupForm">
 		<h1>Register</h1>
 		<div class="email-input">
-			<input type="text" placeholder="Email Address" formControlName="email">
+			<input type="email" placeholder="Email Address" formControlName="email">
+    </div><br>
+    <div class="email-input">
+			<input type="text" placeholder="User Name" formControlName="userName">
     </div><br>
     <div class="pwd-input">
       <input type="password" placeholder="Password" formControlName="password">

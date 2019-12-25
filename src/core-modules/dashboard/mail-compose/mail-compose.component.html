@@ -5,23 +5,25 @@
       <fa-icon [icon]="faIcons.faTimes" (click)="closeModal()"></fa-icon>
     </div>
   </div>
-  <div class="recepient">
-    <input type="text" placeholder="To">
-    <input type="text" placeholder="Cc">
-    <input type="text" placeholder="Bcc">
-  </div>
-  <div class="recepient">
-    <input type="text" placeholder="Subject">
-  </div>
-  <div class="mail-body">
-    <textarea name="msg_body" id="msg-body" cols="50" rows="10"></textarea>
-  </div>
-  <div class="mail-footer">
-    <div class="send">
-      <button>Send</button>
+  <form [formGroup]="mailCompose">
+    <div class="recepient">
+      <input type="text" placeholder="From" formControlName="sender_email">
+      <input type="text" placeholder="To" formControlName="recepient_email">
+      <input type="text" placeholder="cc" formControlName="cc_email">
     </div>
-    <div class="delete">
-      <fa-icon [icon]="faIcons.faTrash"></fa-icon>
+    <div class="recepient">
+      <input type="text" placeholder="Subject" formControlName="subject">
     </div>
-  </div>
+    <div class="mail-body">
+      <textarea name="msg_body" id="msg-body" cols="50" rows="10" formControlName="mail_body"></textarea>
+    </div>
+    <div class="mail-footer">
+      <div class="send">
+        <button (click)="sendMail()">Send</button>
+      </div>
+      <div class="delete">
+        <fa-icon [icon]="faIcons.faTrash"></fa-icon>
+      </div>
+    </div>
+  </form>
 </div>

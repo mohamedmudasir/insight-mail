@@ -1,6 +1,6 @@
 <div class="mail-list-container">
   <div class="list-header">
-    <div class="list-title">Inbox (16)</div>
+    <div class="list-title">Inbox ({{unReadCount}})</div>
     <div class="list-icon">
       <div class="icons">
         <input type="text" placeholder="Search Email">
@@ -12,7 +12,7 @@
   </div>
   <div class="list-menu">
     <div class="left-menu">
-      <div class="icon">
+      <div class="icon" (click)="refresh()">
         <fa-icon [icon]="faIcons.faSync"></fa-icon><span>Refresh</span>
       </div>
       <div class="icon">
@@ -35,14 +35,14 @@
     </div>
   </div>
   <div class="list-container">
-    <div *ngFor="let mail of mockData">
+    <div *ngFor="let mail of inboxData">
       <div class="list-item" [ngClass]="{'unread': mail.read === false }" routerLink="/details">
         <div class="list-check">
           <input type="checkbox">
         </div>
         <div class="list-name">{{mail.sender_name}}</div>
         <div class="list-subject">{{mail.subject}}</div>
-        <div class="list-time">{{mail.sent_at}}</div>
+        <div class="list-time">{{mail.sent_at | date}}</div>
       </div>
     </div>
   </div>

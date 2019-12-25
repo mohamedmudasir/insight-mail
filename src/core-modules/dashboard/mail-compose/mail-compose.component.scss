@@ -3,6 +3,7 @@
   height: 100%;
   max-height: 510px;
   border: 1px solid #00000021;
+  background: white;
 
   .title-card {
     background-color: black;
@@ -40,13 +41,13 @@
 
   .mail-body {
     textarea#msg-body {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0;
-        outline: none;
-        border: none;
-        border-bottom: 1px solid lightgrey;
-        background: white;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid lightgrey;
+      background: white;
     }
   }
 

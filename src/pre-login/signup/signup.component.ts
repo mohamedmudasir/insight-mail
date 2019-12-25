@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import {LoginService} from '../login.service';
+import { LoginService } from "../login.service";
 @Component({
   selector: "app-signup",
   templateUrl: "./signup.component.html",
@@ -10,6 +10,7 @@ export class SignupComponent implements OnInit {
   public errorMessage;
   signupForm = new FormGroup({
     email: new FormControl("", Validators.required),
+    userName: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required),
     confirmPassword: new FormControl("", Validators.required)
   });
@@ -39,6 +40,7 @@ export class SignupComponent implements OnInit {
     if (this.signupForm && this.pwdMatch()) {
       const payload = {
         email: this.ControlInputValue.email.value.toLowerCase().trim(),
+        name: this.ControlInputValue.userName.value,
         pwd: this.ControlInputValue.password.value
       };
       return this.loginService.registerUser(payload).subscribe(
@@ -54,6 +56,5 @@ export class SignupComponent implements OnInit {
         }
       );
     }
-    console.log('hello')
   }
 }

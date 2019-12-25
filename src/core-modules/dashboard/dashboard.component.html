@@ -18,9 +18,9 @@
                   <fa-icon [icon]="faIcons.faInbox"></fa-icon>
                 </div>
                 <div class="group-nav-name">Inbox</div>
-                <div class="group-nav-label inbox">16</div>
+              <div class="group-nav-label inbox">{{unReadCount}}</div>
               </div>
-              <div class="group-list">
+              <div class="group-list" routerLink="/sent">
                 <div class="group-icon">
                   <fa-icon [icon]="faIcons.faEnvelope"></fa-icon>
                 </div>
