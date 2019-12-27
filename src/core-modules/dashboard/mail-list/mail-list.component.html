@@ -36,7 +36,7 @@
   </div>
   <div class="list-container">
     <div *ngFor="let mail of inboxData">
-      <div class="list-item" [ngClass]="{'unread': mail.read === false }" routerLink="/details">
+      <div class="list-item" [ngClass]="{'unread': mail.read === false }" (click)="readMail(mail)">
         <div class="list-check">
           <input type="checkbox">
         </div>

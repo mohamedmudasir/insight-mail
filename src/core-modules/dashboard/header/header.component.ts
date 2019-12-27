@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import {faEnvelope, faShareSquare, faBell} from '@fortawesome/free-solid-svg-icons';
+import { DashboardService } from "../dashboard.service";
+import {
+  faEnvelope,
+  faShareSquare,
+  faBell
+} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-header",
@@ -8,15 +13,22 @@ import {faEnvelope, faShareSquare, faBell} from '@fortawesome/free-solid-svg-ico
   styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
-  faIcons = {faEnvelope, faShareSquare, faBell};
-  constructor(private route: Router) {}
+  public unReadCount: number;
+  faIcons = { faEnvelope, faShareSquare, faBell };
+  constructor(
+    private route: Router,
+    private dashBoardService: DashboardService
+  ) {}
 
-  ngOnInit() {}
-
-  onLogOut()  {
-    console.log('clicked')
-    localStorage.removeItem('currentUser');
-    return this.route.navigate(['/u/login']);
+  ngOnInit() {
+    this.dashBoardService.unReadMsgCount.subscribe(
+      data => (this.unReadCount = data)
+    );
   }
 
+  onLogOut() {
+    console.log("clicked");
+    localStorage.removeItem("currentUser");
+    return this.route.navigate(["/u/login"]);
+  }
 }

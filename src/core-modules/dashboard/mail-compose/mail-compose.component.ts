@@ -10,7 +10,7 @@ import { DashboardService } from "../dashboard.service";
 })
 export class MailComposeComponent implements OnInit {
   mailCompose = new FormGroup({
-    sender_email: new FormControl({value: this.dashboardService.CurrentUser['email'], disabled: true}),
+    sender_email: new FormControl(''),
     recepient_email: new FormControl("", Validators.required),
     cc_email: new FormControl(""),
     subject: new FormControl(""),
@@ -25,7 +25,9 @@ export class MailComposeComponent implements OnInit {
     faTimes,
     faTrash
   };
-  constructor(private dashboardService: DashboardService) {}
+  constructor(private dashboardService: DashboardService) {
+    this.ControlValue.sender_email.setValue(this.dashboardService.CurrentUser['email'])
+  }
 
   ngOnInit() {
   }

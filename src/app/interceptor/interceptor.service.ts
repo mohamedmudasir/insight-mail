@@ -8,11 +8,13 @@ import {
 } from "@angular/common/http";
 import { Observable, of, throwError } from "rxjs";
 import { mergeMap, materialize, dematerialize, delay } from "rxjs/operators";
+import { DashboardService } from "../../core-modules/dashboard/dashboard.service";
 
 let users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
 
 @Injectable()
 export class BackEndInterceptor {
+  constructor(private dashboardService: DashboardService) {}
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -50,6 +52,36 @@ export class BackEndInterceptor {
               return error(`User is already registered . Try Login`);
             }
           }
+          if (url.endsWith("/inboxmail") && method == "GET") {
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            let data = JSON.parse(localStorage.getItem("mailData"));
+            let inboxMail = data.filter(
+              el => el.recipient_email === currentUser["email"]
+            );
+            let cc_mail = data.filter(el => el.cc_id === currentUser["email"]);
+            let bcc_mail = data.filter(
+              el => el.bcc_id === currentUser["email"]
+            );
+            let inbox_mail = [...inboxMail, ...cc_mail, ...bcc_mail];
+            let unReadCount = inbox_mail.filter(el => el.read !== true).length;
+            this.dashboardService.unReadMsgCount.next(unReadCount);
+            return ok({ data: inbox_mail });
+          }
+          if (url.endsWith("/read") && method == "POST") {
+            if (body["read"] != true) {
+              let data = JSON.parse(localStorage.getItem("mailData"));
+              data.forEach((el, i) => {
+                if (JSON.stringify(el) === JSON.stringify(body)) {
+                  body["read"] = true;
+                  data.splice(i, 1, body);
+                  localStorage.setItem("mailData", JSON.stringify(data));
+                  return ok({});
+                } else {
+                  return null;
+                }
+              });
+            }
+          }
           if (url.endsWith("/sendmail") && method == "POST") {
             let data = localStorage.getItem("mailData");
             let msg_body = { ...body };
@@ -65,6 +97,14 @@ export class BackEndInterceptor {
               mail_local_data.push(msg_body);
               localStorage.setItem("mailData", JSON.stringify(mail_local_data));
             }
+          }
+          if (url.endsWith("/sentmail") && method == "GET") {
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            let data = JSON.parse(localStorage.getItem("mailData"));
+            const sentMail = data.filter(
+              el => el.sender_email === currentUser["email"]
+            );
+            return ok({ data: sentMail });
           }
           return next.handle(req);
         })

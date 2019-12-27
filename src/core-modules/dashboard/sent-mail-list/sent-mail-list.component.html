@@ -1,12 +1,12 @@
 <div class="list-container">
-    <div *ngFor="let mail of sentData">
-      <div class="list-item" [ngClass]="{'unread': mail.read === false }" routerLink="/details">
-        <div class="list-check">
-          <input type="checkbox">
-        </div>
-        <div class="list-name">{{mail.sender_name}}</div>
-        <div class="list-subject">{{mail.subject}}</div>
-        <div class="list-time">{{mail.sent_at | date}}</div>
+  <div *ngFor="let mail of sentData">
+    <div class="list-item" (click)="readMail(mail)">
+      <div class="list-check">
+        <input type="checkbox">
       </div>
+      <div class="list-name">{{mail.sender_name}}</div>
+      <div class="list-subject">{{mail.subject}}</div>
+      <div class="list-time">{{mail.sent_at | date}}</div>
     </div>
   </div>
+</div>

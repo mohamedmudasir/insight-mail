@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginService } from "../login.service";
-
+import {DashboardService} from '../../core-modules/dashboard/dashboard.service';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   message: string;
   data: Object;
   tokenId: Object;
-  constructor(private route: Router, private loginService: LoginService) {}
+  constructor(private route: Router, private loginService: LoginService,private dashBoardService: DashboardService) {}
 
   ngOnInit() {
     if (localStorage.getItem("currentUser")) {

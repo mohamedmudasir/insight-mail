@@ -9,6 +9,7 @@ import {
   faArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 import { DashboardService } from "../dashboard.service";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-mail-list",
   templateUrl: "./mail-list.component.html",
@@ -27,15 +28,26 @@ export class MailListComponent implements OnInit {
     faArrowRight
   };
 
-  constructor(private dashBoardService: DashboardService) {}
+  constructor(
+    private dashBoardService: DashboardService,
+    private route: Router
+  ) {}
 
   ngOnInit() {
     this.refresh();
     this.dashBoardService.unReadMsgCount.subscribe(
-      data => (this.unReadCount = data)
+      count => (this.unReadCount = count)
     );
   }
   refresh() {
-    this.inboxData = this.dashBoardService.inboxMail().reverse();
+    this.dashBoardService
+      .inboxMail()
+      .subscribe((data: any) => (this.inboxData = data.data.reverse()));
+  }
+  readMail(selectedMail) {
+    this.route.navigate(["/details"]);
+    this.dashBoardService
+      .readMail(selectedMail)
+      .subscribe(() => this.dashBoardService.inboxMail().subscribe());
   }
 }
