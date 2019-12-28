@@ -46,6 +46,7 @@ export class MailListComponent implements OnInit {
   }
   readMail(selectedMail) {
     this.route.navigate(["/details"]);
+    this.dashBoardService.currentInboxMail.next(selectedMail);
     this.dashBoardService
       .readMail(selectedMail)
       .subscribe(() => this.dashBoardService.inboxMail().subscribe());

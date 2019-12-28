@@ -35,11 +35,11 @@
     </div>
   </div>
   <div class="list-container">
-    <div *ngFor="let mail of inboxData">
-      <div class="list-item" [ngClass]="{'unread': mail.read === false }" (click)="readMail(mail)">
-        <div class="list-check">
-          <input type="checkbox">
-        </div>
+    <div class="list-item" *ngFor="let mail of inboxData">
+      <div class="list-check">
+        <input type="checkbox">
+      </div>
+      <div class="list-content" [ngClass]="{'unread': mail.read === false }" (click)="readMail(mail)">
         <div class="list-name">{{mail.sender_name}}</div>
         <div class="list-subject">{{mail.subject}}</div>
         <div class="list-time">{{mail.sent_at | date}}</div>

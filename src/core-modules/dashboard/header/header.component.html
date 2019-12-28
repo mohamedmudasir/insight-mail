@@ -5,18 +5,22 @@
     </div>
     <nav>
       <div class="nav-icon">
-        <fa-icon [icon]="faIcons.faEnvelope"> </fa-icon>
-        <div class="nav-label inbox">10</div>
+        <div class="icon">
+          <fa-icon [icon]="faIcons.faEnvelope"> </fa-icon>
+        </div>
+        <div class="nav-label inbox">{{unReadCount}}</div>
       </div>
       <div class="nav-icon">
-        <fa-icon [icon]="faIcons.faBell"> </fa-icon>
+        <div class="icon">
+          <fa-icon [icon]="faIcons.faBell"> </fa-icon>
+        </div>
         <div class="nav-label notification">10</div>
       </div>
-      <div class="nav-icon" (click)="onLogOut()">
-        <span>
+      <div class="nav-icon " (click)="onLogOut()">
+        <div class="icon log-out">
           <fa-icon [icon]="faIcons.faShareSquare"></fa-icon>
-        </span>
-        <a>Log Out</a>
+        </div>
+        <div class="log-text">Log Out</div>
       </div>
     </nav>
   </div>

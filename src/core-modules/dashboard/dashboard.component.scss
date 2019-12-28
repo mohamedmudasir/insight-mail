@@ -2,23 +2,36 @@
   display: flex;
   flex-direction: row;
   height: 100%;
-  overflow-y: scroll;
+  overflow: hidden;
+  justify-content: flex-start;
 
   .right-layout {
     width: calc(100% - 90px);
+    z-index: 1;
   }
 
   .main-content {
-    background-color: #d3d3d354;
     display: flex;
     flex-direction: row;
     height: 100%;
+    justify-content: flex-start;
+    margin: 20px 20px 0 20px;
 
     .left-content {
-      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-basis: 25%;
+      .container {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px ;
+      }
 
       .mail-compose {
-        margin: 10px 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
 
         button {
           width: 100%;
@@ -34,9 +47,11 @@
       }
 
       .dashboard-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         .group {
-          margin: 20px;
-
+          margin-top: 20px;
           .group-title {
             font-weight: bold;
             margin: 10px auto;
@@ -50,7 +65,7 @@
             cursor: pointer;
 
             .group-icon {
-              width: 10%;
+              flex-basis: 10%;
             }
 
             .group-nav-name {
@@ -83,7 +98,7 @@
             margin: 5px auto;
 
             .category-icon {
-              width: 10%;
+              flex-basis: 10%;
             }
 
             .category-name {
@@ -97,10 +112,11 @@
             border: 1px solid black;
             text-align: center;
             width: auto;
-            margin: 0 10px;
-            flex-wrap: wrap;
+            flex-wrap: no-wrap;
             font-size: 11px;
-            padding: 0 10px;
+            padding: 5px 10px;
+            margin-right: 5px;
+            margin-bottom: 5px;
 
             .label-icon {
               width: 20px;
@@ -119,7 +135,6 @@
       border: 1px solid white;
       background: white;
       width: 78%;
-      margin: 15px 1%;
     }
   }
 

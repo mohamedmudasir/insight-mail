@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 export class DashboardService {
   composeMail: BehaviorSubject<boolean>;
   unReadMsgCount: BehaviorSubject<number>;
+  currentInboxMail : BehaviorSubject<Object>;
   currentUser = {};
   public baseApi = "api.insight.com";
   public inboxApi = "/inboxmail";
@@ -18,6 +19,7 @@ export class DashboardService {
   constructor(private http: HttpClient) {
     this.composeMail = new BehaviorSubject(false);
     this.unReadMsgCount = new BehaviorSubject(0);
+    this.currentInboxMail = new BehaviorSubject({});
   }
 
   get CurrentUser() {

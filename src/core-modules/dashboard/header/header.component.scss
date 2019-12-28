@@ -1,16 +1,19 @@
 .header {
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1%;
+  height: 70px;
+  padding: 10px 1%;
+  background: white;
 
   .wrapper {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 5px 0;
+    padding: 10px 0;
 
     .logo {
-      float: left;
-      padding: 0 1%;
-      width: 5%;
-      ;
+      margin-left: 0px;
       text-align: center;
       font-weight: bolder;
       font-size: 25px;
@@ -21,13 +24,17 @@
     }
 
     nav {
-      float: right;
-      width: 30%;
-      text-align: right;
+      display: flex;
+      flex-flow: row nowrap;
 
       .nav-icon {
-        fa-icon {
-          position: relative;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        margin: 0 20px;
+
+        .log-out {
+          margin: 0 5px;
         }
 
         .nav-label {
@@ -35,7 +42,8 @@
           border: 1px solid black;
           border-radius: 50%;
           margin: 0;
-          top: 13px;
+          top: -4px;
+          right: -10px;
           width: 15px;
           height: 15px;
           font-size: 10px;
@@ -47,10 +55,11 @@
             border-color: #e28d44;
             color: white;
           }
+
           &.notification {
             background: #00A89D;
             border-color: #00A89D;
-            color:white;
+            color: white;
           }
         }
       }
@@ -58,27 +67,7 @@
       fa-icon {
         font-size: 20px;
       }
-
-      div {
-        display: inline-block;
-        margin: 0 30px;
-        cursor: pointer;
-
-        a {
-          padding: 0 5px;
-          text-decoration: none;
-          margin: 0 5px;
-          border-radius: 5px;
-          font-size: 15px;
-        }
-      }
     }
 
   }
-}
-
-.header::after {
-  clear: both;
-  content: '';
-  display: block;
 }

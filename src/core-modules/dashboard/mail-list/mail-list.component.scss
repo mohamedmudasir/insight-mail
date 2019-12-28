@@ -1,24 +1,22 @@
 .mail-list-container {
   .list-header {
-    display: inline-flex;
-    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
     box-sizing: border-box;
     padding: 20px;
     margin-top: 20px;
-    margin-top: 10px;
+    justify-content: space-between;
 
     .list-title {
-      width: 75%;
       font-size: 24px;
     }
 
     .list-icon {
-      width: 25%;
-      display: inline-flex;
-      padding-top: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
       .icons {
-        width: 70%;
 
         input {
           padding: 0;
@@ -27,7 +25,6 @@
       }
 
       .search {
-        width: 30%;
 
         button {
           background-color: #00A89D;
@@ -41,9 +38,9 @@
   }
 
   .list-menu {
-    display: inline-flex;
-    width: 98%;
-    margin: 0 1%;
+    display: flex;
+    flex-direction: row;
+    margin: 0 20px;
     box-sizing: border-box;
     font-size: 15px;
 
@@ -80,13 +77,23 @@
     border-top: 1px solid #00000021;
 
     .list-item {
-      display: inline-flex;
-      padding: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 12px 10px;
       box-sizing: border-box;
-      width: 100%;
       border-bottom: 1px solid #0000000f;
       background: #a098980a;
       cursor: pointer;
+
+      .list-content {
+        display: flex;
+        flex-direction: row;
+        display: flex;
+        width: 95%;
+        box-sizing: border-box;
+        justify-content: center;
+      }
 
       &:hover {
         background: #0000001f;
@@ -111,11 +118,11 @@
       }
 
       .list-subject {
-        width: 60%;
+        width: 58%;
       }
 
       .list-time {
-        width: 10%;
+        width: 12%;
       }
     }
   }
