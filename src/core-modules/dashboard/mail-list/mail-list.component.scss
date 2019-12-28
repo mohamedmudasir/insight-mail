@@ -1,4 +1,7 @@
 .mail-list-container {
+  overflow-y: scroll;
+  height: 86%;
+
   .list-header {
     display: flex;
     flex-flow: row nowrap;
@@ -86,6 +89,8 @@
       background: #a098980a;
       cursor: pointer;
 
+
+
       .list-content {
         display: flex;
         flex-direction: row;
@@ -93,13 +98,16 @@
         width: 95%;
         box-sizing: border-box;
         justify-content: center;
+
+
       }
 
       &:hover {
-        background: #0000001f;
+        background: #0000000f;
       }
 
-      &.unread {
+
+      .unread {
         font-weight: bold;
         background: #a098980a;
       }

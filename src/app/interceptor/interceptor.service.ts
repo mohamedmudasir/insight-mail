@@ -106,6 +106,22 @@ export class BackEndInterceptor {
             );
             return ok({ data: sentMail });
           }
+          if (url.endsWith("/delete") && method == "POST") {
+            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            let data = JSON.parse(localStorage.getItem("mailData"));
+            if (body.length > 0) {
+              body.forEach(el => {
+                data = data.filter(
+                  e => JSON.stringify(e) != JSON.stringify(el)
+                );
+              });
+              localStorage.setItem("mailData", JSON.stringify(data));
+              return ok("Mail deleted successfully!");
+            }
+            else {
+              return ok({});
+            }
+          }
           return next.handle(req);
         })
       )

@@ -15,6 +15,7 @@ export class DashboardService {
   public sendMailApi = "/sendmail";
   public sentMailApi = "/sentmail";
   public readMailApi = "/read";
+  public deleteApi = '/delete';
 
   constructor(private http: HttpClient) {
     this.composeMail = new BehaviorSubject(false);
@@ -42,5 +43,9 @@ export class DashboardService {
   readMail(payload) {
     const url = this.baseApi + this.readMailApi;
     return this.http.post(url, payload);
+  }
+  deleteMail(payload) {
+    const url = this.baseApi + this.deleteApi;
+    return this.http.post(url,payload);
   }
 }

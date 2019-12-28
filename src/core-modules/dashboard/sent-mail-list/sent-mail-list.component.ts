@@ -16,6 +16,5 @@ public sentData;
   }
 readMail(selectedmail) {
   this.route.navigate(['/details']);
-  console.log(selectedmail)
 }
 }

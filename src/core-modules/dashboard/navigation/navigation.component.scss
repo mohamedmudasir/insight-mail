@@ -14,21 +14,10 @@
 
   &:hover {
     width: 280px;
-
-    .nav-bg {
+    .nav-icons {
       width: 280px;
-      z-index: 1;
     }
   }
-
-  .nav-bg {
-    background: black;
-    z-index: 2;
-    width: 90px;
-    box-sizing: border-box;
-    background-size: cover;
-  }
-
 
 
   .nav-icons {
@@ -38,6 +27,11 @@
     align-items: center;
     box-sizing: border-box;
     width: 90px;
+    cursor: pointer;
+
+    &:hover {
+      background: #1e1c1cad;
+    }
 
     .nav-logo {
       font-size: 30px;
@@ -48,11 +42,6 @@
       font-size: 20px;
       padding: 20px 36px;
     }
-    .nav-text {
-      width: 0px
-    }
   }
-
-
 
 }

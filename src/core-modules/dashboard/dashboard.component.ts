@@ -9,7 +9,7 @@ import {
   faTag
 } from "@fortawesome/free-solid-svg-icons";
 import { DashboardService } from "./dashboard.service";
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -26,14 +26,18 @@ export class DashboardComponent implements OnInit {
     faTag
   };
   public composeMail;
-  public unReadCount : number;
+  public unReadCount: number;
   constructor(private dashboardService: DashboardService) {}
 
   ngOnInit() {
-    this.dashboardService.composeMail.subscribe(data => this.composeMail = data);
-    this.dashboardService.unReadMsgCount.subscribe(data => this.unReadCount = data);
+    this.dashboardService.composeMail.subscribe(
+      data => (this.composeMail = data)
+    );
+    this.dashboardService.unReadMsgCount.subscribe(
+      data => (this.unReadCount = data)
+    );
   }
   navigateToInbox(type) {
-    console.log(type)
+    console.log(type);
   }
 }

@@ -18,6 +18,8 @@ import { Router } from "@angular/router";
 export class MailListComponent implements OnInit {
   public inboxData;
   public unReadCount: number;
+  selectedMails = [];
+  selected: boolean = false;
   faIcons = {
     faSearch,
     faSync,
@@ -39,6 +41,15 @@ export class MailListComponent implements OnInit {
       count => (this.unReadCount = count)
     );
   }
+  onChange(event, mail) {
+    if (event.target.checked) {
+      this.selectedMails.push(mail);
+    } else {
+      this.selectedMails = this.selectedMails.filter(
+        el => JSON.stringify(el) != JSON.stringify(mail)
+      );
+    }
+  }
   refresh() {
     this.dashBoardService
       .inboxMail()
@@ -50,5 +61,9 @@ export class MailListComponent implements OnInit {
     this.dashBoardService
       .readMail(selectedMail)
       .subscribe(() => this.dashBoardService.inboxMail().subscribe());
+  }
+  deleteMail() {
+    const payload = this.selectedMails;
+    this.dashBoardService.deleteMail(payload).subscribe(() => this.refresh());
   }
 }
