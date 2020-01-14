@@ -10,7 +10,7 @@ import { DashboardService } from "../dashboard.service";
 })
 export class MailComposeComponent implements OnInit {
   mailCompose = new FormGroup({
-    sender_email: new FormControl(''),
+    sender_email: new FormControl(""),
     recepient_email: new FormControl("", Validators.required),
     cc_email: new FormControl(""),
     subject: new FormControl(""),
@@ -25,11 +25,14 @@ export class MailComposeComponent implements OnInit {
     faTimes,
     faTrash
   };
-  constructor(private dashboardService: DashboardService) {
-    this.ControlValue.sender_email.setValue(this.dashboardService.CurrentUser['email'])
-  }
+  constructor(private dashboardService: DashboardService) {}
 
   ngOnInit() {
+    if (this.dashboardService.CurrentUser.email) {
+      this.ControlValue.sender_email.setValue(
+        this.dashboardService.CurrentUser.email
+      );
+    }
   }
   closeModal() {
     this.dashboardService.composeMail.next(false);
@@ -44,7 +47,9 @@ export class MailComposeComponent implements OnInit {
       mail_body: this.ControlValue.mail_body.value,
       sent_at: new Date().getTime()
     };
-    this.dashboardService.sendMail(payload).subscribe(data => console.log(data));
+    this.dashboardService
+      .sendMail(payload)
+      .subscribe(data => console.log(data));
     this.closeModal();
   }
 }

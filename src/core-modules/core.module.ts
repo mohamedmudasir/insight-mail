@@ -22,6 +22,6 @@ import { SentMailListComponent } from './dashboard/sent-mail-list/sent-mail-list
     SentMailListComponent
   ],
   imports: [CommonModule, CoreRoutingModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
-  exports: [FontAwesomeModule]
+  exports: []
 })
 export class CoreModule {}
