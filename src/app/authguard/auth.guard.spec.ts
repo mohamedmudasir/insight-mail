@@ -34,7 +34,7 @@ describe("AuthGuard", () => {
     authGuard = new AuthGuard(router);
     const currentUser = localStorage.getItem("currentUser");
     expect(currentUser).toBe(null);
-    expect(authGuard.canActivate()).toEqual(false);
+    expect(authGuard.canActivate()).toBeFalsy();
     const routerSpy = spyOn(router, "navigate");
     router.navigate(["/u/login"]);
     expect(routerSpy).toHaveBeenCalledWith(["/u/login"]);

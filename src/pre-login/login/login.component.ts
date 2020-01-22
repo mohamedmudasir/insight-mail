@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     if (this.loginForm.valid) {
+      console.log('login called')
       const payload = {
         email: this.ControlValue.userName.value.toLowerCase().trim(),
         pwd: this.ControlValue.password.value

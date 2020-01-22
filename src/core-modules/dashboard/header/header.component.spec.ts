@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { HeaderComponent } from "./header.component";
+import { By } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { RouterTestingModule } from "@angular/router/testing";
-import {HttpClientTestingModule} from '@angular/common/http/testing'
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe("HeaderComponent", () => {
   let component: HeaderComponent;
@@ -33,5 +34,11 @@ describe("HeaderComponent", () => {
 
   it("should create", () => {
     expect(component).toBeTruthy();
+  });
+  it("should logout on click", () => {
+    const logout = fixture.debugElement.query(By.css("#logout"));
+    logout.triggerEventHandler("click", null);
+    const onLogOutFn = spyOn(component, "onLogOut");
+    expect(onLogOutFn).toHaveBeenCalled();
   });
 });

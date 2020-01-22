@@ -8,7 +8,7 @@
       <div class="left-content">
         <div class="container">
           <div class="mail-compose">
-            <button (click)= "composeMail = true">Compose mail</button>
+            <button (click)="composeMail = true">Compose mail</button>
           </div>
           <div class="dashboard-nav">
             <div class="group">
@@ -18,7 +18,7 @@
                   <fa-icon [icon]="faIcons.faInbox"></fa-icon>
                 </div>
                 <div class="group-nav-name">Inbox</div>
-              <div class="group-nav-label inbox">{{unReadCount}}</div>
+                <div class="group-nav-label inbox">{{ unReadCount }}</div>
               </div>
               <div class="group-list" routerLink="/sent">
                 <div class="group-icon">
@@ -49,54 +49,93 @@
             <div class="group">
               <div class="group-title">CATEGORIES</div>
               <div class="category-list">
-                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: red;"></fa-icon></div>
+                <div class="category-icon">
+                  <fa-icon
+                    [icon]="faIcons.faCircle"
+                    style="color: red;"
+                  ></fa-icon>
+                </div>
                 <div class="category-name">Work</div>
               </div>
               <div class="category-list">
-                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: purple;"></fa-icon></div>
+                <div class="category-icon">
+                  <fa-icon
+                    [icon]="faIcons.faCircle"
+                    style="color: purple;"
+                  ></fa-icon>
+                </div>
                 <div class="category-name">Documents</div>
               </div>
               <div class="category-list">
-                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: green;"></fa-icon></div>
+                <div class="category-icon">
+                  <fa-icon
+                    [icon]="faIcons.faCircle"
+                    style="color: green;"
+                  ></fa-icon>
+                </div>
                 <div class="category-name">Social</div>
               </div>
               <div class="category-list">
-                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: blue;"></fa-icon></div>
+                <div class="category-icon">
+                  <fa-icon
+                    [icon]="faIcons.faCircle"
+                    style="color: blue;"
+                  ></fa-icon>
+                </div>
                 <div class="category-name">Advertising</div>
               </div>
               <div class="category-list">
-                <div class="category-icon"><fa-icon [icon]="faIcons.faCircle" style="color: orange;"></fa-icon></div>
+                <div class="category-icon">
+                  <fa-icon
+                    [icon]="faIcons.faCircle"
+                    style="color: orange;"
+                  ></fa-icon>
+                </div>
                 <div class="category-name">Clients</div>
               </div>
             </div>
             <div class="group">
               <div class="group-title">LABELS</div>
               <div class="label-list">
-                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-icon">
+                  <fa-icon [icon]="faIcons.faTag"></fa-icon>
+                </div>
                 <div class="label-name">Family</div>
               </div>
               <div class="label-list">
-                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-icon">
+                  <fa-icon [icon]="faIcons.faTag"></fa-icon>
+                </div>
                 <div class="label-name">Work</div>
               </div>
               <div class="label-list">
-                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-icon">
+                  <fa-icon [icon]="faIcons.faTag"></fa-icon>
+                </div>
                 <div class="label-name">Holidays</div>
               </div>
               <div class="label-list">
-                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-icon">
+                  <fa-icon [icon]="faIcons.faTag"></fa-icon>
+                </div>
                 <div class="label-name">Music</div>
               </div>
               <div class="label-list">
-                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-icon">
+                  <fa-icon [icon]="faIcons.faTag"></fa-icon>
+                </div>
                 <div class="label-name">Photography</div>
               </div>
               <div class="label-list">
-                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-icon">
+                  <fa-icon [icon]="faIcons.faTag"></fa-icon>
+                </div>
                 <div class="label-name">Film</div>
               </div>
               <div class="label-list">
-                <div class="label-icon"><fa-icon [icon]="faIcons.faTag"></fa-icon></div>
+                <div class="label-icon">
+                  <fa-icon [icon]="faIcons.faTag"></fa-icon>
+                </div>
                 <div class="label-name">Home</div>
               </div>
             </div>

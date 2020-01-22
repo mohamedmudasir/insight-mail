@@ -37,7 +37,4 @@ export class DashboardComponent implements OnInit {
       data => (this.unReadCount = data)
     );
   }
-  navigateToInbox(type) {
-    console.log(type);
-  }
 }
