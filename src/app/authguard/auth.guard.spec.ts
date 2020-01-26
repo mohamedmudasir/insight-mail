@@ -15,6 +15,7 @@ describe("AuthGuard", () => {
       imports: [RouterTestingModule],
       providers: [AuthGuard]
     });
+    localStorage.removeItem('currentUser')
   });
 
   it("should ...", inject([AuthGuard], (guard: AuthGuard) => {
@@ -23,17 +24,21 @@ describe("AuthGuard", () => {
   it("should allow navigation if user is logged-in", () => {
     router = new MockRouter();
     authGuard = new AuthGuard(router);
-    localStorage.setItem("currentUser", "authenticated");
-    const currentUser = localStorage.getItem("currentUser");
+    const currentToken = {
+      email: "david00@gmail.com",
+      name: "david",
+      token: "fake-jwt-token"
+    };
+    localStorage.setItem("currentUser", JSON.stringify(currentToken));
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     expect(currentUser).toBeDefined();
+    authGuard.canActivate()
     expect(authGuard.canActivate()).toEqual(true);
-    localStorage.removeItem("currentUser");
   });
   it("should navigate to login page for unauthenticated user", () => {
     router = new MockRouter();
     authGuard = new AuthGuard(router);
     const currentUser = localStorage.getItem("currentUser");
-    expect(currentUser).toBe(null);
     expect(authGuard.canActivate()).toBeFalsy();
     const routerSpy = spyOn(router, "navigate");
     router.navigate(["/u/login"]);

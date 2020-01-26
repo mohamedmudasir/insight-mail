@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MailContentComponent } from './mail-content.component';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { CommonModule } from "@angular/common";
 describe('MailContentComponent', () => {
   let component: MailContentComponent;
@@ -16,7 +16,7 @@ describe('MailContentComponent', () => {
         FontAwesomeModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         CommonModule
       ]
     })

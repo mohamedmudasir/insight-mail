@@ -14,7 +14,4 @@ public sentData;
   ngOnInit() {
     this.dashBoardService.sentMail().subscribe((data: any) => this.sentData = data.data)
   }
-readMail(selectedmail) {
-  this.route.navigate(['/details']);
-}
 }

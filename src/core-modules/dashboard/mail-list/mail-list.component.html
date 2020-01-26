@@ -22,7 +22,7 @@
         <fa-icon [icon]="faIcons.faExclamation"></fa-icon>
       </div>
       <div class="icon">
-        <fa-icon [icon]="faIcons.faTrash" (click)="deleteMail()"></fa-icon>
+        <fa-icon id="delete" [icon]="faIcons.faTrash" (click)="deleteMail()"></fa-icon>
       </div>
     </div>
     <div class="right-menu">
@@ -37,7 +37,7 @@
   <div class="list-container">
     <div class="list-item" *ngFor="let mail of inboxData" >
       <div class="list-check">
-      <input type="checkbox" value=true  (change)="onChange($event,mail)">
+      <input class="checkbox" type="checkbox" value=true  (change)="onChange($event,mail)">
       </div>
       <div class="list-content" [ngClass]="{'unread': mail.read === false }" (click)="readMail(mail)">
         <div class="list-name">{{mail.sender_name}}</div>

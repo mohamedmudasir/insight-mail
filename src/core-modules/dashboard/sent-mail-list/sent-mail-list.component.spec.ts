@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SentMailListComponent } from './sent-mail-list.component';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { CommonModule } from "@angular/common";
 import {RouterTestingModule} from '@angular/router/testing'
 describe('SentMailListComponent', () => {
@@ -17,7 +17,7 @@ describe('SentMailListComponent', () => {
         FontAwesomeModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         CommonModule,
         RouterTestingModule
       ]
