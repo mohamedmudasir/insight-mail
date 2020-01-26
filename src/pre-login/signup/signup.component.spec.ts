@@ -33,16 +33,32 @@ describe("SignupComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
-  // it("should register only if password matches", () => {
-  //   component.ControlInputValue.email.setValue("david00@gmail.com");
-  //   component.ControlInputValue.userName.setValue("david");
-  //   component.ControlInputValue.password.setValue("abc");
-  //   component.ControlInputValue.confirmPassword.setValue("abc");
-  //   fixture.detectChanges();
-  //   expect(component.pwdMatch).toBeTruthy();
-  //   const submit = fixture.debugElement.query(By.css("button"));
-  //   submit.nativeElement.click();
-  //   const register = spyOn(component, "onRegister");
-  //   expect(register).toHaveBeenCalled();
-  // });
+  it("should register only if password matches", () => {
+    const register = spyOn(component, "onRegister").and.callThrough();
+    component.ControlInputValue.email.setValue("david00@gmail.com");
+    component.ControlInputValue.userName.setValue("david");
+    component.ControlInputValue.password.setValue("abc");
+    component.ControlInputValue.confirmPassword.setValue("abc");
+    fixture.detectChanges();
+    expect(component.pwdMatch()).toBeTruthy();
+    fixture.debugElement
+      .query(By.css("button"))
+      .triggerEventHandler("click", null);
+    fixture.detectChanges();
+    expect(register).toHaveBeenCalled();
+    component.signupForm.reset();
+  });
+  it("should display error for password mismatch", () => {
+    const register = spyOn(component, "onRegister").and.callThrough();
+    component.ControlInputValue.email.setValue("david00@gmail.com");
+    component.ControlInputValue.userName.setValue("david");
+    component.ControlInputValue.password.setValue("123");
+    component.ControlInputValue.confirmPassword.setValue("1234");
+    fixture.detectChanges();
+    expect(component.pwdMatch()).toBeFalsy();
+    const submit = fixture.debugElement.query(By.css("button"));
+    submit.nativeElement.click();
+    expect(register).toHaveBeenCalled();
+    expect(component.errorMessage).toBe(" Passwords do not match!!");
+  });
 });
