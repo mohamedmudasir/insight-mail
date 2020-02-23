@@ -1,19 +1,29 @@
-<div class="login-container">
-  <form [formGroup]="loginForm">
-    <h1>Sign In</h1>
-    <div class="email-input">
-      <input type="text" formControlName="userName" placeholder="Email or User Name">
-    </div><br>
-    <div class="pwd-input">
-      <input type="password" formControlName="password" placeholder="password">
-    </div><br>
-    <div class="submit">
-      <button (click)="onLogin()">Login </button>
+<div class="body-container">
+  <div class="login-container">
+    <div class="form" [formGroup]="loginForm">
+      <div class="title">
+        <h1>Sign In</h1>
+      </div>
+      <div class="email-input">
+        <input
+          type="text"
+          formControlName="email"
+          placeholder="Email or User Name"
+        />
+      </div>
+      <div class="pwd-input">
+        <input type="Password" formControlName="pwd" placeholder="password" />
+      </div>
+      <div class="submit">
+        <button (click)="onLogin()">Login</button>
+      </div>
     </div>
-  </form><br>
-  <div class="error-msg">{{errorMessage}}</div><br>
-  <div class="signup-link">
-    <div class="signup-txt">
-      Don't have an account ? <span class="back-link" routerLink="/u/signup">SignUp</span>
+    <div class="error-msg">{{ errorMessage }}</div>
+    <div class="signup-link">
+      <div class="signup-txt">
+        Don't have an account ?
+        <span class="back-link" routerLink="/u/signup">SignUp</span>
+      </div>
     </div>
   </div>
+</div>

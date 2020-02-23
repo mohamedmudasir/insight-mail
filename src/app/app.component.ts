@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { MailData } from "./mail-data.interface";
 
 @Component({
   selector: "app-root",
@@ -12,7 +13,7 @@ export class AppComponent {
       localStorage.setItem("mailData", JSON.stringify(this.mailData));
     }
   }
-  mailData = [
+  mailData: MailData[] = [
     {
       sender_email: "messie34@gmail.com",
       sender_name: "Messie",

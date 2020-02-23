@@ -11,15 +11,11 @@ import { DashboardService } from "../dashboard.service";
 export class MailComposeComponent implements OnInit {
   mailCompose = new FormGroup({
     sender_email: new FormControl(""),
-    recepient_email: new FormControl("", Validators.required),
-    cc_email: new FormControl(""),
+    recipient_email: new FormControl("", Validators.required),
+    cc_id: new FormControl(""),
     subject: new FormControl(""),
     mail_body: new FormControl("")
   });
-
-  get ControlValue() {
-    return this.mailCompose.controls;
-  }
 
   faIcons = {
     faTimes,
@@ -29,7 +25,7 @@ export class MailComposeComponent implements OnInit {
 
   ngOnInit() {
     if (this.dashboardService.CurrentUser.email) {
-      this.ControlValue.sender_email.setValue(
+      this.mailCompose.controls.sender_email.setValue(
         this.dashboardService.CurrentUser.email
       );
     }
@@ -37,16 +33,20 @@ export class MailComposeComponent implements OnInit {
   closeModal() {
     this.dashboardService.composeMail.next(false);
   }
+  getFormControlValues() {
+    const formData = {};
+    Object.keys(this.mailCompose.controls).forEach(control => {
+      formData[control] = this.mailCompose.controls[control].value;
+    });
+    return formData;
+  }
   sendMail() {
     const payload = {
-      sender_email: this.ControlValue.sender_email.value,
+      ...this.getFormControlValues(),
       sender_name: this.dashboardService.currentUser["name"],
-      recipient_email: this.ControlValue.recepient_email.value,
-      cc_id: this.ControlValue.cc_email.value,
-      subject: this.ControlValue.subject.value,
-      mail_body: this.ControlValue.mail_body.value,
       sent_at: new Date().getTime()
     };
+    console.log(payload);
     this.dashboardService
       .sendMail(payload)
       .subscribe(data => console.log(data));

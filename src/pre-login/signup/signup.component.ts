@@ -27,26 +27,24 @@ export class SignupComponent implements OnInit {
     return this.signupForm.controls;
   }
   pwdMatch() {
-    if (
-      this.ControlInputValue.password.value ===
-      this.ControlInputValue.confirmPassword.value
-    ) {
+    const { password, confirmPassword } = this.ControlInputValue;
+    if (password.value === confirmPassword.value) {
       return true;
     }
     this.errorMessage = " Passwords do not match!!";
     return false;
   }
   onRegister() {
+    const { email, userName, password } = this.ControlInputValue;
     if (this.signupForm && this.pwdMatch()) {
       const payload = {
-        email: this.ControlInputValue.email.value.toLowerCase().trim(),
-        name: this.ControlInputValue.userName.value,
-        pwd: this.ControlInputValue.password.value
+        email: email.value.toLowerCase().trim(),
+        name: userName.value,
+        pwd: password.value
       };
       return this.loginService.registerUser(payload).subscribe(
         data => {
           this.errorMessage = data;
-          console.log(data);
           this.signupForm.reset();
         },
         err => {

@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginService } from "../login.service";
-import {DashboardService} from '../../core-modules/dashboard/dashboard.service';
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -11,8 +10,8 @@ import {DashboardService} from '../../core-modules/dashboard/dashboard.service';
 export class LoginComponent implements OnInit {
   public errorMessage;
   loginForm = new FormGroup({
-    userName: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required)
+    email: new FormControl("", Validators.required),
+    pwd: new FormControl("", Validators.required)
   });
 
   currentUser: Object;
@@ -20,7 +19,7 @@ export class LoginComponent implements OnInit {
   message: string;
   data: Object;
   tokenId: Object;
-  constructor(private route: Router, private loginService: LoginService,private dashBoardService: DashboardService) {}
+  constructor(private route: Router, private loginService: LoginService) {}
 
   ngOnInit() {
     if (localStorage.getItem("currentUser")) {
@@ -28,26 +27,27 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  get ControlValue() {
-    return this.loginForm.controls;
+  getFormControlValues() {
+    const formData = {};
+    Object.keys(this.loginForm.controls).forEach(control => {
+      formData[control] = this.loginForm.controls[control].value;
+    });
+    return formData;
   }
 
   onLogin() {
-    if (this.loginForm.valid) {
-      console.log('login called')
-      const payload = {
-        email: this.ControlValue.userName.value.toLowerCase().trim(),
-        pwd: this.ControlValue.password.value
-      };
-      return this.loginService.authoriseLogin(payload).subscribe(
-        data => {
-          localStorage.setItem("currentUser", JSON.stringify(data));
-          this.route.navigate(["/"]);
-        },
-        err => {
-          this.errorMessage = err.error.message;
-        }
-      );
-    }
+    const payload = {
+      ...this.getFormControlValues(),
+      email: this.loginForm.controls.email.value.toLowerCase().trim()
+    };
+    return this.loginService.authoriseLogin(payload).subscribe(
+      data => {
+        localStorage.setItem("currentUser", JSON.stringify(data));
+        this.route.navigate(["/"]);
+      },
+      err => {
+        this.errorMessage = err.error.message;
+      }
+    );
   }
 }

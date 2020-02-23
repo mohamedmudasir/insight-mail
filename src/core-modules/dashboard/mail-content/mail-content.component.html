@@ -1,19 +1,19 @@
 <div class="mail-content-container">
-  <div class="mail-subject">{{mailContent.subject}}</div>
+  <div class="mail-subject">{{ mailContent.subject }}</div>
   <div class="mail-details">
     <div class="sender_details">
-      <div class="name">{{mailContent.sender_name | titlecase}}</div>
+      <div class="name">{{ mailContent.sender_name | titlecase }}</div>
       <div class="email_id">
-        <{{mailContent.sender_email}}>
+        {{ mailContent.sender_email }}
       </div>
     </div>
-    <div class="time">{{mailContent.sent_at | date:"medium"}}</div>
+    <div class="time">{{ mailContent.sent_at | date: "medium" }}</div>
   </div>
   <div class="recipient">
-  <div class="r_id">to {{mailContent.recipient_email}},</div>
-  <div class="r_id" *ngIf="mailContent.cc_id">{{mailContent.cc_id}}</div>
+    <div class="r_id">to {{ mailContent.recipient_email }},</div>
+    <div class="r_id" *ngIf="mailContent.cc_id">{{ mailContent.cc_id }}</div>
   </div>
-  <div class="mail-body">{{mailContent.mail_body}}</div>
+  <div class="mail-body">{{ mailContent.mail_body }}</div>
   <div class="mail-action">
     <div class="reply">
       <button>Reply</button>

@@ -9,7 +9,6 @@ import {
   faTag
 } from "@fortawesome/free-solid-svg-icons";
 import { DashboardService } from "./dashboard.service";
-import { Observable } from "rxjs";
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",

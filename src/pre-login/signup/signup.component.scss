@@ -1,42 +1,73 @@
-.signup-container {
-  text-align: center;
-  width: 60%;
-  margin: 10% auto;
+.body-container {
+  background: #4ca99d12;
+  height: 100%;
+  overflow: hidden;
 
-  input {
-    padding: 12px;
-    border: .5px solid #00000059;
-    margin: 0 auto;
-    width: 35%;
-    outline-color: #00800057 !important;
-  }
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 500px;
+    border: 1px solid white;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    box-shadow: 0px 0px 8px 0px #4ca99db3;
 
-  .submit {
-    width: 35%;
-    margin: 0 auto;
+    &>div {
+      margin-bottom: 10px;
+    }
 
-    button {
-      border-radius: 3px;
-      background: #00A89D;
-      border: none;
-      padding: 5px 10px;
-      color: #FCFCFC;
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+
+      &>div {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      input {
+        width: 60%;
+        padding: 12px;
+        border: .5px solid #00000059;
+        outline-color: #00800057 !important;
+      }
+
+      button {
+        width: 100px;
+        height: 35px;
+        border-radius: 3px;
+        background: #00A89D;
+        border: none;
+        color: #FCFCFC;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      .submit {
+        margin-top: 10px;
+      }
+
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 15px;
+      line-height: .5px;
+      width: auto;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: #6C7757;
       cursor: pointer;
     }
   }
-
-  .back-link {
-    text-decoration: none;
-    color: #6C7757;
-    cursor: pointer;
-  }
-
-  .error-msg {
-    color: red;
-    font-size: 15px;
-    line-height: .5px;
-    width: auto;
-  }
-
-
 }

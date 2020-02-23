@@ -10,15 +10,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { DashboardService } from "../dashboard.service";
 import { Router } from "@angular/router";
+import { MailData } from "src/app/mail-data.interface";
 @Component({
   selector: "app-mail-list",
   templateUrl: "./mail-list.component.html",
   styleUrls: ["./mail-list.component.scss"]
 })
 export class MailListComponent implements OnInit {
-  public inboxData;
+  public inboxData: MailData[] = [];
   public unReadCount: number;
-  selectedMails = [];
+  selectedMails: MailData[] = [];
   selected: boolean = false;
   faIcons = {
     faSearch,
@@ -51,9 +52,10 @@ export class MailListComponent implements OnInit {
     }
   }
   refresh() {
-    this.dashBoardService
-      .inboxMail()
-      .subscribe((data: any) => (this.inboxData = data.data.reverse()));
+    this.dashBoardService.inboxMail().subscribe((data: any) => {
+      this.inboxData = data.data;
+      this.inboxData = this.inboxData.sort((a, b) => a.sent_at - b.sent_at);
+    });
   }
   readMail(selectedMail) {
     this.route.navigate(["/details"]);

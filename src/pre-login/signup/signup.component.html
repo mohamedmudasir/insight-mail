@@ -1,24 +1,43 @@
-<div class="signup-container">
-	<form [formGroup]="signupForm">
-		<h1>Register</h1>
-		<div class="email-input">
-			<input type="email" placeholder="Email Address" formControlName="email">
-    </div><br>
-    <div class="email-input">
-			<input type="text" placeholder="User Name" formControlName="userName">
-    </div><br>
-    <div class="pwd-input">
-      <input type="password" placeholder="Password" formControlName="password">
-    </div><br>
-    <div class="pwd-input">
-      <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+<div class="body-container">
+  <div class="signup-container">
+    <div class="form" [formGroup]="signupForm">
+      <div class="title">
+        <h1>Register</h1>
+      </div>
+      <div class="email-input">
+        <input
+          type="email"
+          placeholder="Email Address"
+          formControlName="email"
+        />
+      </div>
+      <div class="email-input">
+        <input type="text" placeholder="User Name" formControlName="userName" />
+      </div>
+      <div class="pwd-input">
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+      </div>
+      <div class="pwd-input">
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+        />
+      </div>
+      <div class="submit">
+        <button (click)="onRegister()">Register</button>
+      </div>
     </div>
-  </form><br>
-  <div class="submit">
-    <button (click)="onRegister()">Register</button>
-  </div><br>
-  <div class="error-msg">{{errorMessage}}</div><br>
-  <div class="login-cont">
-    <div class="login">Already have an account ? <span class= "back-link" routerLink="/u/login">Login</span></div>
+    <div class="error-msg">{{ errorMessage }}</div>
+    <div class="login-cont">
+      <div class="login">
+        Already have an account ?
+        <span class="back-link" routerLink="/u/login">Login</span>
+      </div>
+    </div>
   </div>
 </div>
