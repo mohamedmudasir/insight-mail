@@ -4,17 +4,18 @@ import { DashboardService } from "../dashboard.service";
 import {
   faEnvelope,
   faShareSquare,
-  faBell
+  faBell,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.scss"]
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
   public unReadCount: number;
-  faIcons = { faEnvelope, faShareSquare, faBell };
+  faIcons = { faEnvelope, faShareSquare, faBell, faBars };
   constructor(
     private route: Router,
     private dashBoardService: DashboardService
@@ -22,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.dashBoardService.unReadMsgCount.subscribe(
-      data => (this.unReadCount = data)
+      (data) => (this.unReadCount = data)
     );
   }
 

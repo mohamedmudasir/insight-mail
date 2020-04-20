@@ -1,6 +1,9 @@
 <div class="header">
   <div class="wrapper">
     <div class="logo">
+      <div class="nav-toggle">
+        <fa-icon [icon]="faIcons.faBars"></fa-icon>
+      </div>
       <a>Insight</a>
     </div>
     <nav>
@@ -8,7 +11,7 @@
         <div class="icon">
           <fa-icon [icon]="faIcons.faEnvelope"> </fa-icon>
         </div>
-        <div class="nav-label inbox">{{unReadCount}}</div>
+        <div class="nav-label inbox">{{ unReadCount }}</div>
       </div>
       <div class="nav-icon">
         <div class="icon">

@@ -1,9 +1,9 @@
 <div class="mail-list-container">
   <div class="list-header">
-    <div class="list-title">Inbox ({{unReadCount}})</div>
+    <div class="list-title">Inbox ({{ unReadCount }})</div>
     <div class="list-icon">
       <div class="icons">
-        <input type="text" placeholder="Search Email">
+        <input type="text" placeholder="Search Email" />
       </div>
       <div class="search">
         <button>Search</button>
@@ -13,7 +13,7 @@
   <div class="list-menu">
     <div class="left-menu">
       <div class="icon" (click)="refresh()">
-        <fa-icon [icon]="faIcons.faSync"></fa-icon><span>Refresh</span>
+        <fa-icon [icon]="faIcons.faSync"></fa-icon>
       </div>
       <div class="icon">
         <fa-icon [icon]="faIcons.faEye"></fa-icon>
@@ -22,7 +22,11 @@
         <fa-icon [icon]="faIcons.faExclamation"></fa-icon>
       </div>
       <div class="icon">
-        <fa-icon id="delete" [icon]="faIcons.faTrash" (click)="deleteMail()"></fa-icon>
+        <fa-icon
+          id="delete"
+          [icon]="faIcons.faTrash"
+          (click)="deleteMail()"
+        ></fa-icon>
       </div>
     </div>
     <div class="right-menu">
@@ -35,14 +39,23 @@
     </div>
   </div>
   <div class="list-container">
-    <div class="list-item" *ngFor="let mail of inboxData" >
+    <div class="list-item" *ngFor="let mail of inboxData">
       <div class="list-check">
-      <input class="checkbox" type="checkbox" value=true  (change)="onChange($event,mail)">
+        <input
+          class="checkbox"
+          type="checkbox"
+          value="true"
+          (change)="onChange($event, mail)"
+        />
       </div>
-      <div class="list-content" [ngClass]="{'unread': mail.read === false }" (click)="readMail(mail)">
-        <div class="list-name">{{mail.sender_name}}</div>
-        <div class="list-subject">{{mail.subject}}</div>
-        <div class="list-time">{{mail.sent_at | date}}</div>
+      <div
+        class="list-content"
+        [ngClass]="{ unread: mail.read === false }"
+        (click)="readMail(mail)"
+      >
+        <div class="list-name">{{ mail.sender_name }}</div>
+        <div class="list-subject">{{ mail.subject }}</div>
+        <div class="list-time">{{ mail.sent_at | date }}</div>
       </div>
     </div>
   </div>

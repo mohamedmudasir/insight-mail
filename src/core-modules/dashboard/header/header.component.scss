@@ -12,11 +12,16 @@
     margin: 5px 0;
     padding: 10px 0;
 
+    .nav-toggle {
+      width: 50px;
+    }
+
     .logo {
       margin-left: 0px;
       text-align: center;
       font-weight: bolder;
       font-size: 25px;
+      display: flex;
 
       a {
         text-decoration: none;
